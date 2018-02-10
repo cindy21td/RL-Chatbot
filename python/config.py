@@ -7,8 +7,8 @@ all_words_path = 'data/all_words.txt'
 # training parameters 
 CHECKPOINT = True
 train_model_path = 'model'
-train_model_name = 'model-55'
-start_epoch = 56
+train_model_name = 'model-88'
+start_epoch = 89
 start_batch = 0
 batch_size = 25
 
