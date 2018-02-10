@@ -1,7 +1,8 @@
 # coding=utf-8
 
 from __future__ import print_function
-import cPickle as pickle
+# import cPickle as pickle
+import pickle
 import time
 import re
 import numpy as np
