@@ -1,5 +1,21 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
+## NOTE for 234-224N Project
+* Running the script
+
+Can run the whole project in python3 after the changes in `python\train.py` and `python\RL\train.py`.
+
+* Running on windows machine
+
+Might need to retrain the model. Cannot reuse the pretrained model because Windows system has different encoding than Unix.
+
+* Continuing training for pre-trained model
+
+In python\config.py, change `train_model_path` and `train_model_name` to refer to the correct model path.
+
+* Reward function
+
+Reward function is implemented in `python\RL\train.py`, search for `count_rewards`
 
 ## Intro
 This is a chatbot trained by __seq2seq__ and __reinforcement learning__.
