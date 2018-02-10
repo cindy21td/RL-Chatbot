@@ -140,7 +140,8 @@ def train():
             current_captions = map(lambda x: x.replace('!', ''), current_captions)
             current_captions = map(lambda x: x.replace('\\', ''), current_captions)
             current_captions = map(lambda x: x.replace('/', ''), current_captions)
-
+            current_captions = list(current_captions)
+            
             for idx, each_cap in enumerate(current_captions):
                 word = each_cap.lower().split(' ')
                 if len(word) < n_decode_lstm_step:
@@ -164,7 +165,7 @@ def train():
             current_caption_matrix = pad_sequences(current_caption_ind, padding='post', maxlen=n_decode_lstm_step)
             current_caption_matrix = np.hstack([current_caption_matrix, np.zeros([len(current_caption_matrix), 1])]).astype(int)
             current_caption_masks = np.zeros((current_caption_matrix.shape[0], current_caption_matrix.shape[1]))
-            nonzeros = np.array(map(lambda x: (x != 0).sum() + 1, current_caption_matrix))
+            nonzeros = np.array(list(map(lambda x: (x != 0).sum() + 1, current_caption_matrix)))
 
             for ind, row in enumerate(current_caption_masks):
                 row[:nonzeros[ind]] = 1
