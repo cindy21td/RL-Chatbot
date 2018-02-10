@@ -55,6 +55,70 @@ for conversation in raw_movie_conversations:
 pickle.dump(conversations, open('data/reversed_conversations_lenmax22', 'wb'), True)
 print("Time Elapsed: {} secs\n".format(time.time() - ts))
 
+
+ts = time.time()
+conversations = []
+# former_sents = []
+print('len conversation', len(raw_movie_conversations))
+con_count = 0
+traindata_count = 0
+for conversation in raw_movie_conversations:
+    conversation = conversation.split(' +++$+++ ')[-1]
+    conversation = conversation.replace('[', '')
+    conversation = conversation.replace(']', '')
+    conversation = conversation.replace('\'', '')
+    conversation = conversation.split(', ')
+    assert len(conversation) > 1
+    con_a_1 = ''
+    for i in range(len(conversation) - 1, 0, -1):
+        con_a_2 = utterance_dict[conversation[i]].strip()
+        con_b = utterance_dict[conversation[i-1]].strip()
+        if len(con_a_1.split()) <= 22 and len(con_a_2.split()) <= 22 and len(con_b.split()) <= 22:
+            con_a = "{} {}".format(con_a_1, con_a_2)
+            con_a = [refine(w) for w in con_a.lower().split()]
+            # con_a = [word_vector[w] if w in word_vector else np.zeros(WORD_VECTOR_SIZE) for w in con_a]
+            conversations.append((con_a, con_b, con_a_2))
+            # former_sents.append(con_a_2)
+            traindata_count += 1
+        con_a_1 = con_a_2
+    con_count += 1
+    if con_count % 1000 == 0:
+        print('con_count {}, traindata_count {}'.format(con_count, traindata_count))
+pickle.dump(conversations, open('data/reversed_conversations_lenmax22_formersents2_with_former', 'wb'), True)
+print("Time Elapsed: {} secs\n".format(time.time() - ts))
+
+ts = time.time()
+conversations = []
+# former_sents = []
+print('len conversation', len(raw_movie_conversations))
+con_count = 0
+traindata_count = 0
+for conversation in raw_movie_conversations:
+    conversation = conversation.split(' +++$+++ ')[-1]
+    conversation = conversation.replace('[', '')
+    conversation = conversation.replace(']', '')
+    conversation = conversation.replace('\'', '')
+    conversation = conversation.split(', ')
+    assert len(conversation) > 1
+    con_a_1 = ''
+    for i in range(len(conversation) - 1, 0, -1):
+        con_a_2 = utterance_dict[conversation[i]].strip()
+        con_b = utterance_dict[conversation[i-1]].strip()
+        if len(con_a_1.split()) <= 22 and len(con_a_2.split()) <= 22 and len(con_b.split()) <= 22:
+            con_a = "{} {}".format(con_a_1, con_a_2)
+            con_a = [refine(w) for w in con_a.lower().split()]
+            # con_a = [word_vector[w] if w in word_vector else np.zeros(WORD_VECTOR_SIZE) for w in con_a]
+            conversations.append((con_a, con_b))
+            # former_sents.append(con_a_2)
+            traindata_count += 1
+        con_a_1 = con_a_2
+    con_count += 1
+    if con_count % 1000 == 0:
+        print('con_count {}, traindata_count {}'.format(con_count, traindata_count))
+pickle.dump(conversations, open('data/reversed_conversations_lenmax22_former_sents2', 'wb'), True)
+print("Time Elapsed: {} secs\n".format(time.time() - ts))
+
+
 # some statistics of training data
 max_a = -1
 max_b = -1
