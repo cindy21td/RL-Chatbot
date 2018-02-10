@@ -13,6 +13,10 @@ Might need to retrain the model. Cannot reuse the pretrained model because Windo
 
 In python\config.py, change `train_model_path` and `train_model_name` to refer to the correct model path.
 
+Recent Seq2Seq pretrained model can be downloaded [here](https://drive.google.com/open?id=1KsQTc-B3kSvDB3KkL83as7I9DSiNwMfY). (Trained on 30 epochs)
+
+Recent RL pretrained model: TBA
+
 * Reward function
 
 Reward function is implemented in `python\RL\train.py`, search for `count_rewards`
