@@ -1,7 +1,7 @@
 # path to training data
 # Normal: 'data/conversations_lenmax22_formersents2_with_former'
 # Reversed: 'data/reversed_conversations_lenmax22_formersents2_with_former'
-reverse_train = True
+reverse_train = False
 training_data_path = 'data/conversations_lenmax22_formersents2_with_former'
 if reverse_train:
     training_data_path = 'data/reversed_conversations_lenmax22_formersents2_with_former'
