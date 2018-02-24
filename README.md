@@ -21,6 +21,41 @@ Recent RL pretrained model: TBA
 
 Reward function is implemented in `python\RL\train.py`, search for `count_rewards`
 
+## NOTES on the RL parts:
+
+The RL part of the project depends on 2 custom models: `PolicyGradient_chatbot` and (Reversed) `Seq2Seq_chatbot` for computing the reward and training the RL model. 
+
+#### `PolicyGradient_chatbot`
+
+- Inputs for this model: word vectors, captions, caption masks, `reward`
+
+- Consists of two LSTM models, `LSTM_1` and `LSTM_2` used for encoding and decoding (shared parameters).
+
+- Encoding: wordvec embeddings --> `LSTM_1` --> enc_output_1  +  padding --> `LSTM_2` --> enc_output_2
+
+- Decoding: padding --> `LSTM_1` --> dec_output_1  +  enc_output_2 --> `LSTM_2` --> dec_output_2
+
+- Output from the decoder is used as logits for the loss (Cross entropy). My guess this is similar to forward seq2seq cross entropy loss.
+
+- The `RL` part of the loss is: `loss = CE_loss * reward`
+
+#### `Seq2Seq_chatbot` 
+(TBA)
+
+#### High-level training flow in `python\RL\train.py`:
+
+For each epoch:
+
+- Run `PolicyGradient_chatbot` with `reward = 1` to get the `forward entropy` (forward seq2seq cross entropy loss) and `dull_loss` (cross entropy * reward)
+
+- Run (Reversed) `Seq2Seq_chatbot` to get the `backward entropy`
+
+- Calculate the reward with `forward entropy`, `backward entropy`, `dull_loss`.
+
+- Run `PolicyGradient_chatbot` with the reward from previous step (not necessarily = 1).
+
+Note that, there's only one `PolicyGradient_chatbot`, which means that the variables for step 1 and step 3 are reused and shared.
+
 ## Intro
 This is a chatbot trained by __seq2seq__ and __reinforcement learning__.
 
