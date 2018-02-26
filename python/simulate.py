@@ -15,15 +15,22 @@ import os
 import sys
 import time
 
+#arguments 
+
+# 1.) model path
+# 2.) simulation type (use 2)
+# 3.) path to test data
+# 4.) path to output 
+
 
 #=====================================================
 # Global Parameters
 #=====================================================
 default_model_path = './model/model-20'
-default_simulate_type = 1  # type 1 use one former sent, type 2 use two former sents
+default_simulate_type = 2  # type 1 use one former sent, type 2 use two former sents
 
 testing_data_path = 'sample_input.txt' if len(sys.argv) <= 3 else sys.argv[3]
-output_path = 'sample_dialog_output.txt' if len(sys.argv) <= 4 else sys.argv[4]
+output_path = 'sample_dialog_output_moose.txt' if len(sys.argv) <= 4 else sys.argv[4]
 
 max_turns = config.MAX_TURNS
 word_count_threshold = config.WC_threshold
@@ -50,7 +57,7 @@ def refine(data):
 def generate_question_vector(state, word_vector, dim_wordvec, n_encode_lstm_step):
     state = [refine(w) for w in state.lower().split()]
     state = [word_vector[w] if w in word_vector else np.zeros(dim_wordvec) for w in state]
-    state.insert(0, np.random.normal(size=(dim_wordvec,))) # insert random normal at the first step
+    #state.insert(0, np.random.normal(size=(dim_wordvec,))) # insert random normal at the first step
 
     if len(state) > n_encode_lstm_step:
         state = state[:n_encode_lstm_step]
@@ -78,7 +85,7 @@ def generate_answer_sentence(generated_word_index, prob_logit, ixtoword):
         generated_words.append(ixtoword[ind])
 
     # generate sentence
-    punctuation = np.argmax(np.array(generated_words) == '<eos>') + 1
+    punctuation = np.argmax(np.array(generated_words) == '<eos>') # + 1
     generated_words = generated_words[:punctuation]
     generated_sentence = ' '.join(generated_words)
 
@@ -145,7 +152,7 @@ def simulate(model_path=default_model_path, simulate_type=default_simulate_type)
     with open(output_path, 'w') as out:
         for idx, start_sentence in enumerate(testing_data):
             print('dialog {}'.format(idx))
-            print('A => {}'.format(start_sentence))
+            #print('A => {}'.format(start_sentence))
             out.write('dialog {}\nA: {}\n'.format(idx, start_sentence))
 
             dialog_history = init_history(simulate_type, start_sentence)
@@ -163,7 +170,7 @@ def simulate(model_path=default_model_path, simulate_type=default_simulate_type)
                                                               ixtoword=ixtoword)
 
                 dialog_history.append(generated_sentence)
-                print('B => {}'.format(generated_sentence))
+                #print('B => {}'.format(generated_sentence))
 
                 question_2 = generate_question_vector(state=get_cur_state(simulate_type, dialog_history), 
                                                     word_vector=word_vector, 
@@ -177,14 +184,14 @@ def simulate(model_path=default_model_path, simulate_type=default_simulate_type)
                                                                   ixtoword=ixtoword)
 
                 dialog_history.append(generated_sentence_2)
-                print('A => {}'.format(generated_sentence_2))
+                #print('A => {}'.format(generated_sentence_2))
                 out.write('B: {}\nA: {}\n'.format(generated_sentence, generated_sentence_2))
 
 
 if __name__ == "__main__":
     model_path = default_model_path if len(sys.argv) <= 1 else sys.argv[1]
     simulate_type = default_simulate_type if len(sys.argv) <= 2 else int(sys.argv[2])
-    n_encode_lstm_step = n_encode_lstm_step * simulate_type + 1  # sent len * sent num + one random normal
+    n_encode_lstm_step = n_encode_lstm_step * simulate_type # + 1  # sent len * sent num + one random normal
     print('simulate_type', simulate_type)
     print('n_encode_lstm_step', n_encode_lstm_step)
     simulate(model_path=model_path, simulate_type=simulate_type)

@@ -1,0 +1,220 @@
+dialog 0
+A: Have you heard about 'machine learning and having it deep and structured'?
+B: Usual palm theirs larry author.
+A: Usual palm theirs larry author.
+B: Usual needs dearest anyway soft woods.
+A: Usual needs dearest heller damn.
+B: Source.
+A: Usual slaves.
+B: Usual needs dearest.
+A: Usual dearest soft.
+B: Source chili stage bet.
+A: Soft.
+B: Soft walt larry cattle.
+A: Soft.
+B: Usual.
+A: Usual needs dearest anyway soft woods.
+B: Usual.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+B: Source.
+A: Usual dearest.
+dialog 1
+A: Machine learning.
+B: Usual.
+A: Soft.
+B: Usual needs dearest anyway soft woods.
+A: Source chili stage bite.
+B: Comfortable. Usual needs dearest heller damn.
+A: Source chili soft.
+B: Usual walt larry cattle.
+A: Soft.
+B: Usual needs dearest anyway soft woods.
+A: Source chili stage bite.
+B: Comfortable. Usual needs dearest heller damn.
+A: Source chili soft.
+B: Usual walt larry cattle.
+A: Soft.
+B: Usual needs dearest anyway soft woods.
+A: Source chili stage bite.
+B: Comfortable. Usual needs dearest heller damn.
+A: Source chili soft.
+B: Usual walt larry cattle.
+A: Soft.
+dialog 2
+A: I don't know. Maybe we should watch the tape to be sure.
+B: Stage.
+A: Stage.
+B: Usual roy soft letty monsters larry author.
+A: Soft.
+B: Soft.
+A: Usual needs dearest anyway soft woods.
+B: Source chili stage bite.
+A: Comfortable. Usual needs dearest heller damn.
+B: Source chili soft.
+A: Usual walt larry cattle.
+B: Soft.
+A: Usual needs dearest anyway soft woods.
+B: Source chili stage bite.
+A: Comfortable. Usual needs dearest heller damn.
+B: Source chili soft.
+A: Usual walt larry cattle.
+B: Soft.
+A: Usual needs dearest anyway soft woods.
+B: Source chili stage bite.
+A: Comfortable. Usual needs dearest heller damn.
+dialog 3
+A: Listen man, I don't need this shit.
+B: Gallagher.
+A: Usual.
+B: Usual dearest.
+A: Usual dearest soft.
+B: Usual needs dearest anyway soft woods.
+A: Soft dearest heller photograph soft.
+B: Source chili stage sounds.
+A: Usual.
+B: Soft dearest anyway usual woods.
+A: Soft walt larry cattle.
+B: Soft.
+A: Usual.
+B: Usual needs dearest anyway soft woods.
+A: Usual.
+B: Source.
+A: Usual dearest.
+B: Usual needs dearest.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+dialog 4
+A: Will you stand up for me?
+B: Usual roy broads.
+A: Usual needs dearest anyway photograph screaming.
+B: Soft.
+A: Source.
+B: Usual needs dearest.
+A: Usual harold broads.
+B: Source chili stage bet.
+A: Soft.
+B: Soft walt larry cattle.
+A: Soft.
+B: Usual.
+A: Usual needs dearest anyway soft woods.
+B: Usual.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+B: Source.
+A: Usual dearest.
+B: Usual needs dearest.
+A: Source.
+dialog 5
+A: How do you trun this on?
+B: Human.
+A: Human. 
+B: Usual.
+A: Usual needs dearest anyway soft woods.
+B: Usual.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+B: Source.
+A: Usual dearest.
+B: Usual needs dearest.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+B: Source.
+A: Usual dearest.
+B: Usual needs dearest.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+dialog 6
+A: Thank God it's Friday!
+B: Usual.
+A: Usual needs dearest heller damn usual hafta bear screaming.
+B: Source.
+A: Usual walt larry author.
+B: Usual.
+A: Usual needs dearest anyway soft woods.
+B: Usual.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+B: Source.
+A: Usual dearest.
+B: Usual needs dearest.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+B: Source.
+A: Usual dearest.
+B: Usual needs dearest.
+A: Source.
+dialog 7
+A: I'm sure a lot of people down in L.A. are worried sick about you.
+B: Soft monsters larry comfortable.
+A: Soft. 
+B: Usual.
+A: Usual needs dearest anyway soft woods.
+B: Usual.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+B: Source.
+A: Usual dearest.
+B: Usual needs dearest.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+B: Source.
+A: Usual dearest.
+B: Usual needs dearest.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+dialog 8
+A: I forgot to get the Coca-Cola.
+B: Break.
+A: Break.
+B: Usual.
+A: Usual needs dearest anyway soft woods.
+B: Usual.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+B: Source.
+A: Usual dearest.
+B: Usual needs dearest.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+B: Source.
+A: Usual dearest.
+B: Usual needs dearest.
+A: Source.
+B: Usual dearest.
+A: Usual needs dearest.
+dialog 9
+A: How about you graduation thesis?
+B: Anyway homer soft set-up owe.
+A: Anyway homer soft set-up owe.
+B: Usual needs dearest heller damn usual hafta bear screaming.
+A: Narcotics.
+B: Usual harold soft walt larry author.
+A: Soft.
+B: Soft.
+A: Usual needs dearest anyway soft woods.
+B: Source chili stage bite.
+A: Comfortable. Usual needs dearest heller damn.
+B: Source chili soft.
+A: Usual walt larry cattle.
+B: Soft.
+A: Usual needs dearest anyway soft woods.
+B: Source chili stage bite.
+A: Comfortable. Usual needs dearest heller damn.
+B: Source chili soft.
+A: Usual walt larry cattle.
+B: Soft.
+A: Usual needs dearest anyway soft woods.
