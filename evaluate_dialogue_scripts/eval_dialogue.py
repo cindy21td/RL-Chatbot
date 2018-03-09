@@ -18,7 +18,7 @@ import argparse
 THRESHOLD_FOR_UNIGRAM_OVERLAP = 0.8
 
 # copied from Brain Huang's code. We can modify this if we want
-dull_set = ["I don't know what you're talking about.", "I don't know.", "You don't know.", "You know what I mean.", "I know what you mean.", "You know what I'm saying.", "You don't know anything."]
+dull_set = ["I don't know what you're talking about.", "I don't know.", "You don't know.", "You know what I mean.", "I know what you mean.", "You know what I'm saying.", "You don't know anything.", "soft", "dearest"]
 
 
 parser = argparse.ArgumentParser()
@@ -118,12 +118,26 @@ def calculate_dialog_length(all_agent_responses):
 	return turn_counter
 
 
+# possible for more than one response to be "dull" since we only check if a dull word/phrase is INSIDE the response
+# should we turn this into a ratio ? Normalize by # of words in the response itself ?
+def calculate_dull_response_count(all_responses):
+	dull_count = 0
+	for response in all_responses:
+		cleaned_response = clean_response_helper(response)
+		for dull_response in dull_set:
+			dull_response_no_punc = dull_response.translate(None, string.punctuation)
+			if (dull_response_no_punc.lower().strip() in cleaned_response.lower().strip()):
+				dull_count +=1
+	return dull_count
+
 
 conversation_lengths = []
 unigram_ratios = []
 bigram_ratios = []
+dull_word_counts = []
 for conversation in responses:
 	responses_A, responses_B = split_dialogue(conversation)
+
 	#print "Length of dialog from agent A is: {}".format(calculate_dialog_length(responses_A))
 	#print "Length of dialog from agent B is: {}".format(calculate_dialog_length(responses_B))
 	
@@ -138,8 +152,13 @@ for conversation in responses:
 	bigram_ratios.append(calculate_bigram_diveristy_ratio(responses_A))
 	bigram_ratios.append(calculate_bigram_diveristy_ratio(responses_B))
 
+	# get count of dull words
+	dull_word_counts.append(calculate_dull_response_count(responses_A))
+	dull_word_counts.append(calculate_dull_response_count(responses_B))
+
+
 print "Average # of turns in conversation is: {}".format(np.mean(conversation_lengths))
 print "Average unigram diveristy ratio is: {}".format(np.mean(unigram_ratios))
 print "Average bigram diversity ratio is:  {}".format(np.mean(bigram_ratios))
-
+print "Average count of dull words in a dialog is given by {}".format(np.mean(dull_word_counts))
 
